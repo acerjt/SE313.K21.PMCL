@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,7 +15,10 @@ namespace Week2
         private int duration;
         private Label label;
         private Boolean isProcess;
-
+        private List<Image> animation;
+        private int posX;
+        private int posY;
+        private int currentFrame;
         public int ID {
             get { return id; }
             set { id = value; }
@@ -42,12 +46,33 @@ namespace Week2
             get { return isProcess; }
             set { isProcess = value; }
         }
+        public int POSX
+        {
+            get { return posX; }
+            set { posX = value; }
+        }
+        public int POSY
+        {
+            get { return posY; }
+            set { posY = value; }
+        }
+        public int CURRENTFRAME
+        {
+            get { return currentFrame; }
+            set { currentFrame = value; }
+        }
+        public List<Image> ANIMATION
+        {
+            get { return animation; }
+            set { animation = value; }
+        }
         public HanhKhach(int id, int type, int duration)/*, int x , int y)*/
         {
             this.id = id;
             this.type = type;
             this.duration = duration;
             label = new Label();
+            currentFrame = 0;
             //label.Location = new System.Drawing.Point(x, y);
         }
     }

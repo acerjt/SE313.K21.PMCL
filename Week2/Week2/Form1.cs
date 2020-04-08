@@ -26,10 +26,22 @@ namespace Week2
 
         private int counter = 0;
 
+        private List<Image> simonImage = new List<Image>();
+        private int simonImageMaxIndex = 4;
+
+        private List<Image> ninjaImage = new List<Image>();
+        private int ninjaImageMaxIndex = 3;
+
+        private List<Image> hawImage = new List<Image>();
+        private int hawImageMaxIndex = 4;
+
+
         private int n = 10;
         public Form1()
         {
             InitializeComponent();
+            this.DoubleBuffered = true;
+            LoadResources();
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -47,22 +59,51 @@ namespace Week2
 
         }
 
+        private void LoadResources()
+        {
+            for (int i = 0; i < simonImageMaxIndex; i++)
+            {
+                Bitmap image = (Bitmap)Bitmap.FromFile(@"D:\Download\simon_" + i.ToString() + ".png");
+                image.RotateFlip(RotateFlipType.RotateNoneFlipX);
+               
+                simonImage.Add(image);
+            }
+            for (int i = 0; i < ninjaImageMaxIndex; i++)
+            {
+                Bitmap image = (Bitmap)Bitmap.FromFile(@"D:\Download\ninja_" + i.ToString() + ".png");
+                //image.RotateFlip(RotateFlipType.RotateNoneFlipX);
+                ninjaImage.Add(image);
+            }
+            for (int i = 0; i < hawImageMaxIndex; i++)
+            {
+                Bitmap image = (Bitmap)Bitmap.FromFile(@"D:\Download\haw_" + i.ToString() + ".png");
+                image.RotateFlip(RotateFlipType.RotateNoneFlipX);
+                hawImage.Add(image);
+            }
+        }
+
         private void Form1_Load(object sender, EventArgs e)
         {
+            
             timer1.Start();
             timer2.Start();
             timer3.Start();
-
-            keyValuePairs.Enqueue(new HanhKhach(1, 1, 2));/*,30,50));*/
+            timer4.Start();
             keyValuePairs.Enqueue(new HanhKhach(2, 3, 7));/*,80,100));*/
             keyValuePairs.Enqueue(new HanhKhach(3, 3, 6));/*,70,100));*/
-            keyValuePairs.Enqueue(new HanhKhach(8, 2, 2));/*,50,70));*/
-            keyValuePairs.Enqueue(new HanhKhach(6, 2, 4));/*,40,70));*/
-            keyValuePairs.Enqueue(new HanhKhach(4, 2, 3));/*,30,70));*/
             keyValuePairs.Enqueue(new HanhKhach(5, 3, 7));/*,60,100));*/
             keyValuePairs.Enqueue(new HanhKhach(7, 3, 7));/*,50,100));*/
             keyValuePairs.Enqueue(new HanhKhach(9, 3, 7));/*,40,100));*/
+            keyValuePairs.Enqueue(new HanhKhach(15, 3, 7));/*,40,100));*/
+            keyValuePairs.Enqueue(new HanhKhach(14, 3, 7));/*,40,100));*/
             keyValuePairs.Enqueue(new HanhKhach(10, 3, 7));/*,30,100));*/
+            keyValuePairs.Enqueue(new HanhKhach(11, 3, 7));/*,30,100));*/
+            keyValuePairs.Enqueue(new HanhKhach(8, 2, 2));/*,50,70));*/
+            keyValuePairs.Enqueue(new HanhKhach(12, 3, 7));/*,30,100));*/
+            keyValuePairs.Enqueue(new HanhKhach(4, 2, 3));/*,30,70));*/
+            keyValuePairs.Enqueue(new HanhKhach(13, 3, 7));/*,30,100));*/
+            keyValuePairs.Enqueue(new HanhKhach(6, 2, 4));/*,40,70));*/
+            keyValuePairs.Enqueue(new HanhKhach(1, 1, 2));/*,30,50));*/
 
 
         }
@@ -80,6 +121,9 @@ namespace Week2
                     test.LABEL.Location = new System.Drawing.Point(gateA.Location.X - 200, gateA.Location.Y);
                     test.LABEL.Text = test.DURATION.ToString();
                     test.LABEL.AutoSize = true;
+                    test.ANIMATION = simonImage;
+                    test.POSX = gateA.Location.X - 200;
+                    test.POSY = gateA.Location.Y;
                     this.Controls.Add(test.LABEL);
                     thuonggia.Enqueue(test);
                 }
@@ -89,6 +133,9 @@ namespace Week2
                     test.LABEL.Location = new System.Drawing.Point(gateB.Location.X - 200, gateB.Location.Y);
                     test.LABEL.Text = test.DURATION.ToString();
                     test.LABEL.AutoSize = true;
+                    test.ANIMATION = ninjaImage;
+                    test.POSX = gateB.Location.X - 200;
+                    test.POSY = gateB.Location.Y;
                     this.Controls.Add(test.LABEL);
                     online.Enqueue(test);
                 }
@@ -97,6 +144,9 @@ namespace Week2
                     test.LABEL.Location = new System.Drawing.Point(gateC.Location.X - 200, gateC.Location.Y);
                     test.LABEL.Text = test.DURATION.ToString();
                     test.LABEL.AutoSize = true;
+                    test.ANIMATION = hawImage;
+                    test.POSX = gateC.Location.X - 200;
+                    test.POSY = gateC.Location.Y;
                     this.Controls.Add(test.LABEL);
                     thuong.Enqueue(test);
                 }
@@ -213,19 +263,21 @@ namespace Week2
                                     }
                                 }
                             }
-                            if (thuong.Count != 0 && thuonginprocess.Count != 0 && thuonggiainprocess.Count == 0 && thuonggia.Count == 0 && keyValuePairs.Count == 0)
+                            if (thuong.Count != 0 && thuonginprocess.Count != 0 && thuonggiainprocess.Count == 0 && thuonggia.Count == 0)
                             {
                                 HanhKhach c = thuong.Dequeue();
                                 c.TYPE = 1;
                                 c.LABEL.Location = new Point(c.LABEL.Location.X, gateA.Location.Y);
+                                c.POSY = gateA.Location.Y;
                                 thuonggia.Enqueue(c);
                                
                             }
-                            if (thuong.Count != 0 && thuonginprocess.Count != 0 && onlineinprocess.Count == 0 && online.Count == 0 && keyValuePairs.Count == 0)
+                            if (thuong.Count != 0 && thuonginprocess.Count != 0 && onlineinprocess.Count == 0 && online.Count == 0)
                             {
                                 HanhKhach b = thuong.Dequeue();
                                 b.TYPE = 2;
                                 b.LABEL.Location = new Point(b.LABEL.Location.X, gateB.Location.Y);
+                                b.POSY = gateB.Location.Y;
                                 online.Enqueue(b);
                             }
                         }
@@ -241,9 +293,66 @@ namespace Week2
                 for (int i = 0; i < n; i++)
                 {
                     for (int j = i + 1; j < n; j++)
+                    {
+
                         if (s[i].LABEL.Bounds.IntersectsWith(s[j].LABEL.Bounds))
                             s[j].LABEL.Location = new Point(s[i].LABEL.Location.X - 20, s[i].LABEL.Location.Y);
+                    }
+
                 }
+            }
+        }
+
+        private void Form1_Paint(object sender, PaintEventArgs e)
+        {
+            foreach( HanhKhach x in s) {
+                if(x.ANIMATION != null)
+                    e.Graphics.DrawImage(x.ANIMATION[x.CURRENTFRAME], new Point(x.POSX, x.POSY));
+            }
+        }
+
+        private void timer4_Tick(object sender, EventArgs e)
+        {
+            foreach(HanhKhach x in s)
+            {
+                if (x.TYPE == 1)
+                {
+                    if (x.CURRENTFRAME >= simonImageMaxIndex - 1)
+                        x.CURRENTFRAME = 0;
+                    else
+                        x.CURRENTFRAME++;
+                    x.POSX+= 20;
+                    if (x.POSX >= gateA.Location.X - 20)
+                    {
+                        x.POSX = gateA.Location.X - 20;
+                    }
+                }
+                else if (x.TYPE == 2)
+                {
+                    if (x.CURRENTFRAME >= ninjaImageMaxIndex - 1)
+                        x.CURRENTFRAME = 0;
+                    else
+                        x.CURRENTFRAME++;
+                    x.POSX += 20;
+                    if (x.POSX >= gateA.Location.X - 20)
+                    {
+                        x.POSX = gateA.Location.X - 20;
+                    }
+                }
+                else if (x.TYPE == 3)
+                {
+                    if (x.CURRENTFRAME >= hawImageMaxIndex - 1)
+                        x.CURRENTFRAME = 0;
+                    else
+                        x.CURRENTFRAME++;
+                    x.POSX += 20;
+                    if (x.POSX >= gateA.Location.X - 20)
+                    {
+                        x.POSX = gateA.Location.X - 20;
+                    }
+                }
+
+                this.Invalidate();
             }
         }
     }
