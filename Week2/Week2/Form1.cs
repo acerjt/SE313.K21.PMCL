@@ -39,18 +39,60 @@ namespace Week2
         private int hawImageMaxIndex = 4;
 
 
-        private int n = 10;
+        private int n;
         public Form1()
         {
             InitializeComponent();
             this.DoubleBuffered = true;
             LoadResources();
+            GenerateCustomer();
             timer1.Interval = 100;
             timer2.Interval = 100;
             timer3.Interval = 100;
             timer4.Interval = 100;
         }
 
+
+        private void GenerateCustomer()
+        {
+            Random r = new Random(DateTime.Now.Millisecond);
+            int rInt;
+            n = Form2.customerNumber;
+            int id = 0;
+            int thuonggianumber = (int)Math.Floor(n * 0.1);
+            int onlinenumber = (int)(Math.Floor(n * 0.3));
+            int thuongnumber = n - (thuonggianumber + onlinenumber);
+
+            while(thuonggianumber + onlinenumber + thuongnumber != 0)
+            {
+                rInt = r.Next(1, 4);
+                if (rInt == 1 && thuonggianumber!= 0)
+                {
+                    thuonggianumber -= 1;
+                   
+                    int rtg = r.Next(2, 4);
+                    keyValuePairs.Enqueue(new HanhKhach(id, 1, rtg));/*,30,50));*/
+                    id += 1;
+                }
+                else if (rInt == 2 && onlinenumber != 0)
+                {
+                    onlinenumber -= 1;
+                    
+                    int ro = r.Next(1, 5);
+                    keyValuePairs.Enqueue(new HanhKhach(id, 2, ro));/*,30,50));*/
+                    id += 1;
+                }
+                else if (rInt == 3 && thuongnumber != 0)
+                {
+                    thuongnumber -= 1;
+                  
+                    int rt = r.Next(3, 8);
+                    keyValuePairs.Enqueue(new HanhKhach(id, 3, rt));/*,30,50));*/
+                    id+=1;
+                }
+            }
+
+        }
 
         private void LoadResources()
         {
@@ -85,21 +127,21 @@ namespace Week2
             timer1.Start();
             timer2.Start();
             timer4.Start();
-            keyValuePairs.Enqueue(new HanhKhach(1, 1, 2));/*,30,50));*/
-            keyValuePairs.Enqueue(new HanhKhach(2, 3, 7));/*,80,100));*/
-            keyValuePairs.Enqueue(new HanhKhach(3, 3, 6));/*,70,100));*/
-            keyValuePairs.Enqueue(new HanhKhach(5, 3, 13));/*,60,100));*/
-            keyValuePairs.Enqueue(new HanhKhach(7, 3, 7));/*,50,100));*/
-            keyValuePairs.Enqueue(new HanhKhach(9, 3, 7));/*,40,100));*/
-            keyValuePairs.Enqueue(new HanhKhach(15, 3, 7));/*,40,100));*/
-            keyValuePairs.Enqueue(new HanhKhach(14, 3, 7));/*,40,100));*/
-            keyValuePairs.Enqueue(new HanhKhach(10, 3, 7));/*,30,100));*/
-            keyValuePairs.Enqueue(new HanhKhach(11, 3, 7));/*,30,100));*/
-            keyValuePairs.Enqueue(new HanhKhach(8, 2, 2));/*,50,70));*/
-            keyValuePairs.Enqueue(new HanhKhach(12, 3, 7));/*,30,100));*/
-            keyValuePairs.Enqueue(new HanhKhach(4, 2, 3));/*,30,70));*/
-            keyValuePairs.Enqueue(new HanhKhach(13, 3, 7));/*,30,100));*/
-            keyValuePairs.Enqueue(new HanhKhach(6, 2, 4));/*,40,70));*/
+            //keyValuePairs.Enqueue(new HanhKhach(1, 1, 2));/*,30,50));*/
+            //keyValuePairs.Enqueue(new HanhKhach(2, 3, 7));/*,80,100));*/
+            //keyValuePairs.Enqueue(new HanhKhach(3, 3, 6));/*,70,100));*/
+            //keyValuePairs.Enqueue(new HanhKhach(5, 3, 13));/*,60,100));*/
+            //keyValuePairs.Enqueue(new HanhKhach(7, 3, 7));/*,50,100));*/
+            //keyValuePairs.Enqueue(new HanhKhach(9, 3, 7));/*,40,100));*/
+            //keyValuePairs.Enqueue(new HanhKhach(15, 3, 7));/*,40,100));*/
+            //keyValuePairs.Enqueue(new HanhKhach(14, 3, 7));/*,40,100));*/
+            //keyValuePairs.Enqueue(new HanhKhach(10, 3, 7));/*,30,100));*/
+            //keyValuePairs.Enqueue(new HanhKhach(11, 3, 7));/*,30,100));*/
+            //keyValuePairs.Enqueue(new HanhKhach(8, 2, 2));/*,50,70));*/
+            //keyValuePairs.Enqueue(new HanhKhach(12, 3, 7));/*,30,100));*/
+            //keyValuePairs.Enqueue(new HanhKhach(4, 2, 3));/*,30,70));*/
+            //keyValuePairs.Enqueue(new HanhKhach(13, 3, 7));/*,30,100));*/
+            //keyValuePairs.Enqueue(new HanhKhach(6, 2, 4));/*,40,70));*/
             //keyValuePairs.Enqueue(new HanhKhach(100, 3, 7));/*,30,50));*/
             //keyValuePairs.Enqueue(new HanhKhach(1000, 3, 4));/*,30,50));*/
             //keyValuePairs.Enqueue(new HanhKhach(121, 3, 5));/*,30,50));*/

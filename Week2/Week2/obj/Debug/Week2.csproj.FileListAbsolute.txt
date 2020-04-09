@@ -28,3 +28,4 @@ C:\Users\ASUS\source\repos\SE313.K21.PMCL\Week2\Week2\obj\Debug\Week2.csproj.Gen
 C:\Users\ASUS\source\repos\SE313.K21.PMCL\Week2\Week2\obj\Debug\Week2.csproj.CoreCompileInputs.cache
 C:\Users\ASUS\source\repos\SE313.K21.PMCL\Week2\Week2\obj\Debug\Week2.exe
 C:\Users\ASUS\source\repos\SE313.K21.PMCL\Week2\Week2\obj\Debug\Week2.pdb
+C:\Users\ASUS\source\repos\SE313.K21.PMCL\Week2\Week2\obj\Debug\Week2.Form2.resources
