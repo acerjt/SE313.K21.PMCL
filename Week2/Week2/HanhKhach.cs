@@ -19,9 +19,15 @@ namespace Week2
         private int posX;
         private int posY;
         private int currentFrame;
+        private int queueType;
         public int ID {
             get { return id; }
             set { id = value; }
+        }
+        public int QUEUETYPE
+        {
+            get { return queueType; }
+            set { queueType = value; }
         }
 
         public int TYPE
@@ -71,8 +77,10 @@ namespace Week2
             this.id = id;
             this.type = type;
             this.duration = duration;
+            this.queueType = type;
             label = new Label();
             currentFrame = 0;
+
             //label.Location = new System.Drawing.Point(x, y);
         }
     }

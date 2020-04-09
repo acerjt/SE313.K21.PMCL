@@ -46,7 +46,6 @@
             this.gateA.Size = new System.Drawing.Size(20, 20);
             this.gateA.TabIndex = 0;
             this.gateA.Text = "A";
-            this.gateA.Click += new System.EventHandler(this.label1_Click);
             // 
             // gateB
             // 
@@ -56,7 +55,6 @@
             this.gateB.Size = new System.Drawing.Size(20, 20);
             this.gateB.TabIndex = 1;
             this.gateB.Text = "B";
-            this.gateB.Click += new System.EventHandler(this.label2_Click);
             // 
             // gateC
             // 
@@ -66,7 +64,6 @@
             this.gateC.Size = new System.Drawing.Size(20, 20);
             this.gateC.TabIndex = 2;
             this.gateC.Text = "C";
-            this.gateC.Click += new System.EventHandler(this.label3_Click);
             // 
             // timer1
             // 
@@ -80,6 +77,7 @@
             // 
             // timer3
             // 
+            this.timer3.Interval = 10;
             this.timer3.Tick += new System.EventHandler(this.timer3_Tick);
             // 
             // timer4

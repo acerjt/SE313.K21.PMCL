@@ -60,17 +60,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-    </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Settings.settings</DependentUpon>
@@ -80,5 +81,39 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\haw_0.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\haw_1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\haw_2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\haw_3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ninja_0.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ninja_1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ninja_2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\simon_0.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\simon_1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\simon_2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\simon_3.png" />
+  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
