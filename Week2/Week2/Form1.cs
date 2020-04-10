@@ -73,6 +73,8 @@ namespace Week2
             txtthuonggianumber.Text = thuonggiaNumber.ToString();
             txtonlinenumber.Text = onlineNumber.ToString();
             txtthuongnumber.Text = thuongNumber.ToString();
+
+
             while(thuonggianumber + onlinenumber + thuongnumber != 0)
             {
                 rInt = r.Next(1, 4);
@@ -87,7 +89,7 @@ namespace Week2
                 else if (rInt == 2 && onlinenumber != 0)
                 {
                     onlinenumber -= 1;
-                    
+
                     int ro = r.Next(1, 5);
                     keyValuePairs.Enqueue(new HanhKhach(id, 2, ro));/*,30,50));*/
                     id += 1;
@@ -95,10 +97,10 @@ namespace Week2
                 else if (rInt == 3 && thuongnumber != 0)
                 {
                     thuongnumber -= 1;
-                  
+
                     int rt = r.Next(3, 8);
                     keyValuePairs.Enqueue(new HanhKhach(id, 3, rt));/*,30,50));*/
-                    id+=1;
+                    id += 1;
                 }
             }
 
@@ -153,16 +155,16 @@ namespace Week2
             //keyValuePairs.Enqueue(new HanhKhach(13, 3, 7));/*,30,100));*/
             //keyValuePairs.Enqueue(new HanhKhach(6, 2, 4));/*,40,70));*/
             //keyValuePairs.Enqueue(new HanhKhach(100, 3, 7));/*,30,50));*/
-            //keyValuePairs.Enqueue(new HanhKhach(1000, 3, 4));/*,30,50));*/
-            //keyValuePairs.Enqueue(new HanhKhach(121, 3, 5));/*,30,50));*/
-            //keyValuePairs.Enqueue(new HanhKhach(1123, 3, 2));/*,30,50));*/
+            //keyValuePairs.Enqueue(new HanhKhach(1000, 3, 7));/*,30,50));*/
+            //keyValuePairs.Enqueue(new HanhKhach(121, 3, 7));/*,30,50));*/
+            //keyValuePairs.Enqueue(new HanhKhach(1123, 3, 7));/*,30,50));*/
             //keyValuePairs.Enqueue(new HanhKhach(11234, 3, 7));/*,30,50));*/
-            //keyValuePairs.Enqueue(new HanhKhach(11233, 3, 6));/*,30,50));*/
-            //keyValuePairs.Enqueue(new HanhKhach(11235, 3, 2));/*,30,50));*/
-            //keyValuePairs.Enqueue(new HanhKhach(11236, 3, 5));/*,30,50));*/
+            //keyValuePairs.Enqueue(new HanhKhach(11233, 3, 7));/*,30,50));*/
+            //keyValuePairs.Enqueue(new HanhKhach(11235, 3, 7));/*,30,50));*/
+            //keyValuePairs.Enqueue(new HanhKhach(11236, 3, 7));/*,30,50));*/
             //keyValuePairs.Enqueue(new HanhKhach(11237, 3, 7));/*,30,50));*/
-            //keyValuePairs.Enqueue(new HanhKhach(112373, 3, 6));/*,30,50));*/
-            //keyValuePairs.Enqueue(new HanhKhach(11233, 3, 6));/*,30,50));*/
+            //keyValuePairs.Enqueue(new HanhKhach(112373, 3, 7));/*,30,50));*/
+            //keyValuePairs.Enqueue(new HanhKhach(11233, 3, 7));/*,30,50));*/
 
 
         }
@@ -182,7 +184,7 @@ namespace Week2
                     test.LABEL.AutoSize = true;
                     test.ANIMATION = simonImage;
                     test.POSX = gateA.Location.X - 200;
-                    test.POSY = gateA.Location.Y;
+                    test.POSY = gateA.Location.Y + 15;
                     this.Controls.Add(test.LABEL);
                     thuonggia.Enqueue(test);
                 }
@@ -194,7 +196,7 @@ namespace Week2
                     test.LABEL.AutoSize = true;
                     test.ANIMATION = ninjaImage;
                     test.POSX = gateB.Location.X - 200;
-                    test.POSY = gateB.Location.Y;
+                    test.POSY = gateB.Location.Y + 15;
                     this.Controls.Add(test.LABEL);
                     online.Enqueue(test);
                 }
@@ -205,7 +207,7 @@ namespace Week2
                     test.LABEL.AutoSize = true;
                     test.ANIMATION = hawImage;
                     test.POSX = gateC.Location.X - 200;
-                    test.POSY = gateC.Location.Y;
+                    test.POSY = gateC.Location.Y + 15;
                     this.Controls.Add(test.LABEL);
                     thuong.Enqueue(test);
                 }
@@ -231,12 +233,11 @@ namespace Week2
                         if (thuonggia.Count != 0 && thuonggiainprocess.Count == 0)
                         {
                             HanhKhach a = thuonggia.Dequeue();
-                            thuonggiainprocess.Enqueue(a);
-                           
+                            thuonggiainprocess.Enqueue(a);     
                         }
                         if(thuonggiainprocess.Count != 0 )
                         {
-                            if (x.ID == thuonggiainprocess.Peek().ID)
+                            //if (x.ID == thuonggiainprocess.Peek().ID)
                             {
                                 x.DURATION -= 1;
                                 x.LABEL.Text = x.DURATION.ToString();
@@ -248,9 +249,15 @@ namespace Week2
                                     s.Remove(x);
                                     n--;
                                     thuonggiainprocess.Dequeue();
-
-                                    thuonggiaNumber -= 1;
+                                    if (x.TYPE == 1)
+                                        thuonggiaNumber -= 1;
+                                    else if (x.TYPE == 2)
+                                        onlineNumber -= 1;
+                                    else if (x.TYPE == 3)
+                                        thuongNumber -= 1;
                                     txtthuonggianumber.Text = thuonggiaNumber.ToString();
+                                    txtonlinenumber.Text = onlineNumber.ToString();
+                                    txtthuongnumber.Text = thuongNumber.ToString();
                                     if (thuonggia.Count != 0 && thuonggiainprocess.Count == 0)
                                     {
                                         HanhKhach a = thuonggia.Dequeue();
@@ -265,7 +272,7 @@ namespace Week2
                                 HanhKhach c = thuonggia.Dequeue();
                                 c.QUEUETYPE = 2;
                                 c.LABEL.Location = new Point(c.LABEL.Location.X, gateB.Location.Y);
-                                c.POSY = gateB.Location.Y;
+                                c.POSY = gateB.Location.Y + 15;
                                 online.Enqueue(c);
 
                             }
@@ -274,7 +281,7 @@ namespace Week2
                                 HanhKhach b = thuonggia.Dequeue();
                                 b.QUEUETYPE = 3;
                                 b.LABEL.Location = new Point(b.LABEL.Location.X, gateC.Location.Y);
-                                b.POSY = gateC.Location.Y;
+                                b.POSY = gateC.Location.Y + 15;
                                 thuong.Enqueue(b);
                             }
                         }
@@ -289,7 +296,7 @@ namespace Week2
                         }
                         if(onlineinprocess.Count != 0 )
                         {
-                            if (x.ID == onlineinprocess.Peek().ID)
+                            //if (x.ID == onlineinprocess.Peek().ID)
                             {
                                 x.DURATION -= 1;
                                 x.LABEL.Text = x.DURATION.ToString();
@@ -301,8 +308,15 @@ namespace Week2
                                     this.Controls.Remove(x.LABEL);
                                     s.Remove(x);
                                     n--;
-                                    onlineNumber -= 1;
+                                    if (x.TYPE == 1)
+                                        thuonggiaNumber -= 1;
+                                    else if (x.TYPE == 2)
+                                        onlineNumber -= 1;
+                                    else if (x.TYPE == 3)
+                                        thuongNumber -= 1;
+                                    txtthuonggianumber.Text = thuonggiaNumber.ToString();
                                     txtonlinenumber.Text = onlineNumber.ToString();
+                                    txtthuongnumber.Text = thuongNumber.ToString();
                                     onlineinprocess.Dequeue();
                                     if (online.Count != 0 && onlineinprocess.Count == 0)
                                     {
@@ -318,7 +332,7 @@ namespace Week2
                                 HanhKhach c = online.Dequeue();
                                 c.QUEUETYPE = 1;
                                 c.LABEL.Location = new Point(c.LABEL.Location.X, gateA.Location.Y);
-                                c.POSY = gateA.Location.Y;
+                                c.POSY = gateA.Location.Y + 15;
                                 thuonggia.Enqueue(c);
 
                             }
@@ -327,7 +341,7 @@ namespace Week2
                                 HanhKhach b = online.Dequeue();
                                 b.QUEUETYPE = 3;
                                 b.LABEL.Location = new Point(b.LABEL.Location.X, gateC.Location.Y);
-                                b.POSY = gateC.Location.Y;
+                                b.POSY = gateC.Location.Y + 15;
                                 thuong.Enqueue(b);
                             }
 
@@ -346,7 +360,7 @@ namespace Week2
                         {
 
 
-                            if (x.ID == thuonginprocess.Peek().ID)
+                            //if (x.ID == thuonginprocess.Peek().ID)
                             {
                                 x.DURATION -= 1;
                                 x.LABEL.Text = x.DURATION.ToString();
@@ -361,7 +375,14 @@ namespace Week2
                                     s.Remove(x);
                                     n--;
 
-                                    thuongNumber -= 1;
+                                    if (x.TYPE == 1)
+                                        thuonggiaNumber -= 1;
+                                    else if (x.TYPE == 2)
+                                        onlineNumber -= 1;
+                                    else if (x.TYPE == 3)
+                                        thuongNumber -= 1;
+                                    txtthuonggianumber.Text = thuonggiaNumber.ToString();
+                                    txtonlinenumber.Text = onlineNumber.ToString();
                                     txtthuongnumber.Text = thuongNumber.ToString();
                                     if (thuong.Count != 0 && thuonginprocess.Count == 0)
                                     {
@@ -376,7 +397,7 @@ namespace Week2
                                 HanhKhach c = thuong.Dequeue();
                                 c.QUEUETYPE = 1;
                                 c.LABEL.Location = new Point(c.LABEL.Location.X, gateA.Location.Y);
-                                c.POSY = gateA.Location.Y;
+                                c.POSY = gateA.Location.Y + 15;
                                 thuonggia.Enqueue(c);
                                
                             }
@@ -385,7 +406,7 @@ namespace Week2
                                 HanhKhach b = thuong.Dequeue();
                                 b.QUEUETYPE = 2;
                                 b.LABEL.Location = new Point(b.LABEL.Location.X, gateB.Location.Y);
-                                b.POSY = gateB.Location.Y;
+                                b.POSY = gateB.Location.Y + 15;
                                 online.Enqueue(b);
                             }
                         }

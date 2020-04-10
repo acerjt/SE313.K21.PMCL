@@ -14,7 +14,6 @@ namespace Week2
         private int type;
         private int duration;
         private Label label;
-        private Boolean isProcess;
         private List<Image> animation;
         private int posX;
         private int posY;
@@ -47,11 +46,11 @@ namespace Week2
             get { return label ; }
             set { label = value; }
         }
-        public Boolean ISPROCESS
-        {
-            get { return isProcess; }
-            set { isProcess = value; }
-        }
+        //public Boolean ISPROCESS
+        //{
+        //    get { return isProcess; }
+        //    set { isProcess = value; }
+        //}
         public int POSX
         {
             get { return posX; }
