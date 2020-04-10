@@ -38,6 +38,9 @@ namespace Week2
         private List<Image> hawImage = new List<Image>();
         private int hawImageMaxIndex = 4;
 
+        private int thuonggiaNumber;
+        private int onlineNumber;
+        private int thuongNumber;
 
         private int n;
         public Form1()
@@ -46,10 +49,10 @@ namespace Week2
             this.DoubleBuffered = true;
             LoadResources();
             GenerateCustomer();
-            timer1.Interval = 100;
-            timer2.Interval = 100;
-            timer3.Interval = 100;
-            timer4.Interval = 100;
+            timer1.Interval = 500;
+            timer2.Interval = 500;
+            timer3.Interval = 500;
+            timer4.Interval = 500;
         }
 
 
@@ -63,6 +66,13 @@ namespace Week2
             int onlinenumber = (int)(Math.Floor(n * 0.3));
             int thuongnumber = n - (thuonggianumber + onlinenumber);
 
+            thuonggiaNumber = thuonggianumber;
+            onlineNumber = onlinenumber;
+            thuongNumber = thuongnumber;
+
+            txtthuonggianumber.Text = thuonggiaNumber.ToString();
+            txtonlinenumber.Text = onlineNumber.ToString();
+            txtthuongnumber.Text = thuongNumber.ToString();
             while(thuonggianumber + onlinenumber + thuongnumber != 0)
             {
                 rInt = r.Next(1, 4);
@@ -238,6 +248,9 @@ namespace Week2
                                     s.Remove(x);
                                     n--;
                                     thuonggiainprocess.Dequeue();
+
+                                    thuonggiaNumber -= 1;
+                                    txtthuonggianumber.Text = thuonggiaNumber.ToString();
                                     if (thuonggia.Count != 0 && thuonggiainprocess.Count == 0)
                                     {
                                         HanhKhach a = thuonggia.Dequeue();
@@ -288,6 +301,8 @@ namespace Week2
                                     this.Controls.Remove(x.LABEL);
                                     s.Remove(x);
                                     n--;
+                                    onlineNumber -= 1;
+                                    txtonlinenumber.Text = onlineNumber.ToString();
                                     onlineinprocess.Dequeue();
                                     if (online.Count != 0 && onlineinprocess.Count == 0)
                                     {
@@ -345,6 +360,9 @@ namespace Week2
                                     thuonginprocess.Dequeue();
                                     s.Remove(x);
                                     n--;
+
+                                    thuongNumber -= 1;
+                                    txtthuongnumber.Text = thuongNumber.ToString();
                                     if (thuong.Count != 0 && thuonginprocess.Count == 0)
                                     {
                                         HanhKhach a = thuong.Dequeue();

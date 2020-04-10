@@ -36,6 +36,12 @@
             this.timer2 = new System.Windows.Forms.Timer(this.components);
             this.timer3 = new System.Windows.Forms.Timer(this.components);
             this.timer4 = new System.Windows.Forms.Timer(this.components);
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.txtthuonggianumber = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.txtonlinenumber = new System.Windows.Forms.Label();
+            this.txtthuongnumber = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // gateA
@@ -85,11 +91,68 @@
             this.timer4.Interval = 1000;
             this.timer4.Tick += new System.EventHandler(this.timer4_Tick);
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(55, 371);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(80, 20);
+            this.label1.TabIndex = 3;
+            this.label1.Text = "thuonggia";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(351, 371);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(51, 20);
+            this.label2.TabIndex = 4;
+            this.label2.Text = "online";
+            // 
+            // txtthuonggianumber
+            // 
+            this.txtthuonggianumber.AutoSize = true;
+            this.txtthuonggianumber.Location = new System.Drawing.Point(161, 371);
+            this.txtthuonggianumber.Name = "txtthuonggianumber";
+            this.txtthuonggianumber.Size = new System.Drawing.Size(0, 20);
+            this.txtthuonggianumber.TabIndex = 6;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(580, 371);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(59, 20);
+            this.label4.TabIndex = 5;
+            this.label4.Text = "thuong";
+            // 
+            // txtonlinenumber
+            // 
+            this.txtonlinenumber.AutoSize = true;
+            this.txtonlinenumber.Location = new System.Drawing.Point(437, 371);
+            this.txtonlinenumber.Name = "txtonlinenumber";
+            this.txtonlinenumber.Size = new System.Drawing.Size(0, 20);
+            this.txtonlinenumber.TabIndex = 7;
+            // 
+            // txtthuongnumber
+            // 
+            this.txtthuongnumber.AutoSize = true;
+            this.txtthuongnumber.Location = new System.Drawing.Point(692, 371);
+            this.txtthuongnumber.Name = "txtthuongnumber";
+            this.txtthuongnumber.Size = new System.Drawing.Size(0, 20);
+            this.txtthuongnumber.TabIndex = 8;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.txtthuongnumber);
+            this.Controls.Add(this.txtonlinenumber);
+            this.Controls.Add(this.txtthuonggianumber);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.gateC);
             this.Controls.Add(this.gateB);
             this.Controls.Add(this.gateA);
@@ -111,6 +174,12 @@
         private System.Windows.Forms.Timer timer2;
         private System.Windows.Forms.Timer timer3;
         private System.Windows.Forms.Timer timer4;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label txtthuonggianumber;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label txtonlinenumber;
+        private System.Windows.Forms.Label txtthuongnumber;
     }
 }
 
