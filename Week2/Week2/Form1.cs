@@ -237,7 +237,7 @@ namespace Week2
                         }
                         if(thuonggiainprocess.Count != 0 )
                         {
-                            //if (x.ID == thuonggiainprocess.Peek().ID)
+                            if (x.ID == thuonggiainprocess.Peek().ID)
                             {
                                 x.DURATION -= 1;
                                 x.LABEL.Text = x.DURATION.ToString();
@@ -267,7 +267,7 @@ namespace Week2
                                 }
                             }
 
-                            if (thuonggia.Count != 0 && thuonggiainprocess.Count != 0 && onlineinprocess.Count == 0 && online.Count == 0)
+                            if (thuonggia.Count != 0 && thuonggiainprocess.Count != 0 && onlineinprocess.Count == 0 && online.Count == 0 )
                             {
                                 HanhKhach c = thuonggia.Dequeue();
                                 c.QUEUETYPE = 2;
@@ -292,11 +292,11 @@ namespace Week2
                         {
                             HanhKhach a = online.Dequeue();
                             onlineinprocess.Enqueue(a);
-                            
+
                         }
-                        if(onlineinprocess.Count != 0 )
+                        if (onlineinprocess.Count != 0)
                         {
-                            //if (x.ID == onlineinprocess.Peek().ID)
+                            if (x.ID == onlineinprocess.Peek().ID)
                             {
                                 x.DURATION -= 1;
                                 x.LABEL.Text = x.DURATION.ToString();
@@ -360,7 +360,7 @@ namespace Week2
                         {
 
 
-                            //if (x.ID == thuonginprocess.Peek().ID)
+                            if (x.ID == thuonginprocess.Peek().ID)
                             {
                                 x.DURATION -= 1;
                                 x.LABEL.Text = x.DURATION.ToString();
@@ -392,7 +392,7 @@ namespace Week2
                                     }
                                 }
                             }
-                            if (thuong.Count != 0 && thuonginprocess.Count != 0 && thuonggiainprocess.Count == 0 && thuonggia.Count == 0)
+                            if (thuong.Count != 0 && thuonginprocess.Count != 0 && thuonggiainprocess.Count == 0 /*&& thuonggia.Count == 0*/)
                             {
                                 HanhKhach c = thuong.Dequeue();
                                 c.QUEUETYPE = 1;
@@ -401,7 +401,7 @@ namespace Week2
                                 thuonggia.Enqueue(c);
                                
                             }
-                            if (thuong.Count != 0 && thuonginprocess.Count != 0 && onlineinprocess.Count == 0 && online.Count == 0)
+                            if (thuong.Count != 0 && thuonginprocess.Count != 0 && onlineinprocess.Count == 0 /*&& online.Count == 0*/)
                             {
                                 HanhKhach b = thuong.Dequeue();
                                 b.QUEUETYPE = 2;
@@ -430,14 +430,14 @@ namespace Week2
                     if (s[i].LABEL.Bounds.IntersectsWith(s[j].LABEL.Bounds))
                     {
                         s[j].LABEL.Location = new Point(s[i].LABEL.Location.X - 20, s[i].LABEL.Location.Y);
-                        s[j].POSX = s[i].POSX - 20;
+                        //s[j].POSX = s[i].POSX - 20;
                     }
 
-                    //Rectangle sourceRect = new Rectangle(s[i].POSX, s[i].POSY, s[i].LABEL.Width, s[i].ANIMATION[0].Height);
-                    //Rectangle dectRect = new Rectangle(s[j].POSX, s[j].POSY, s[j].LABEL.Width, s[j].ANIMATION[0].Height);
+                    Rectangle sourceRect = new Rectangle(s[i].POSX, s[i].POSY, s[i].LABEL.Width, s[i].ANIMATION[0].Height);
+                    Rectangle dectRect = new Rectangle(s[j].POSX, s[j].POSY, s[j].LABEL.Width, s[j].ANIMATION[0].Height);
 
-                    //if (sourceRect.IntersectsWith(dectRect))
-                    //    s[j].POSX = s[i].POSX - 5;
+                    if (sourceRect.IntersectsWith(dectRect))
+                        s[j].POSX = s[i].POSX - 20;
 
                 }
 
