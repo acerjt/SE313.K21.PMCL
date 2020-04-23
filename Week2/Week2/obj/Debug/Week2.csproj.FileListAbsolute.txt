@@ -29,3 +29,14 @@ C:\Users\ASUS\source\repos\SE313.K21.PMCL\Week2\Week2\obj\Debug\Week2.csproj.Cor
 C:\Users\ASUS\source\repos\SE313.K21.PMCL\Week2\Week2\obj\Debug\Week2.exe
 C:\Users\ASUS\source\repos\SE313.K21.PMCL\Week2\Week2\obj\Debug\Week2.pdb
 C:\Users\ASUS\source\repos\SE313.K21.PMCL\Week2\Week2\obj\Debug\Week2.Form2.resources
+E:\Learning\UIT\HK8\Thuật toán thông minh\SE313.K21.PMCL\Week2\Week2\bin\Debug\Week2.exe.config
+E:\Learning\UIT\HK8\Thuật toán thông minh\SE313.K21.PMCL\Week2\Week2\bin\Debug\Week2.exe
+E:\Learning\UIT\HK8\Thuật toán thông minh\SE313.K21.PMCL\Week2\Week2\bin\Debug\Week2.pdb
+E:\Learning\UIT\HK8\Thuật toán thông minh\SE313.K21.PMCL\Week2\Week2\obj\Debug\Week2.csprojAssemblyReference.cache
+E:\Learning\UIT\HK8\Thuật toán thông minh\SE313.K21.PMCL\Week2\Week2\obj\Debug\Week2.Form1.resources
+E:\Learning\UIT\HK8\Thuật toán thông minh\SE313.K21.PMCL\Week2\Week2\obj\Debug\Week2.Form2.resources
+E:\Learning\UIT\HK8\Thuật toán thông minh\SE313.K21.PMCL\Week2\Week2\obj\Debug\Week2.Properties.Resources.resources
+E:\Learning\UIT\HK8\Thuật toán thông minh\SE313.K21.PMCL\Week2\Week2\obj\Debug\Week2.csproj.GenerateResource.cache
+E:\Learning\UIT\HK8\Thuật toán thông minh\SE313.K21.PMCL\Week2\Week2\obj\Debug\Week2.csproj.CoreCompileInputs.cache
+E:\Learning\UIT\HK8\Thuật toán thông minh\SE313.K21.PMCL\Week2\Week2\obj\Debug\Week2.exe
+E:\Learning\UIT\HK8\Thuật toán thông minh\SE313.K21.PMCL\Week2\Week2\obj\Debug\Week2.pdb

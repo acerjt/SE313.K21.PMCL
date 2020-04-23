@@ -1,0 +1,10 @@
+C:\Users\ASUS\source\repos\AStarSearch\AStarSearch\obj\Debug\AStarSearch.csprojAssemblyReference.cache
+C:\Users\ASUS\source\repos\AStarSearch\AStarSearch\obj\Debug\AStarSearch.Properties.Resources.resources
+C:\Users\ASUS\source\repos\AStarSearch\AStarSearch\obj\Debug\AStarSearch.csproj.GenerateResource.cache
+C:\Users\ASUS\source\repos\AStarSearch\AStarSearch\obj\Debug\AStarSearch.csproj.CoreCompileInputs.cache
+C:\Users\ASUS\source\repos\AStarSearch\AStarSearch\obj\Debug\AStarSearch.Form1.resources
+C:\Users\ASUS\source\repos\AStarSearch\AStarSearch\bin\Debug\AStarSearch.exe.config
+C:\Users\ASUS\source\repos\AStarSearch\AStarSearch\bin\Debug\AStarSearch.exe
+C:\Users\ASUS\source\repos\AStarSearch\AStarSearch\bin\Debug\AStarSearch.pdb
+C:\Users\ASUS\source\repos\AStarSearch\AStarSearch\obj\Debug\AStarSearch.exe
+C:\Users\ASUS\source\repos\AStarSearch\AStarSearch\obj\Debug\AStarSearch.pdb
